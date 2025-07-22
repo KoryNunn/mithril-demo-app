@@ -72,6 +72,8 @@ const MyComponent = emittable((vnode, emit)) {
 		}
 	}
 }
+
+module.exports = { MyComponent };
 ```
 
 This pattern has been employed in multiple non-trivial, production applications.
