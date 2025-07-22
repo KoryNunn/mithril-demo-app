@@ -1,0 +1,7 @@
+node_modules
+public/index.js
+public/index.js.map
+public/index.css
+public/index.css.map
+coverage/*
+*.log

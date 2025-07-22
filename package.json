@@ -1,0 +1,27 @@
+{
+  "name": "mithril-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild ./index.js ./index.css --bundle --minify --sourcemap --outdir=./public  --define:process.env.NODE_ENV=\"'production'\"",
+    "watch": "esbuild ./index.js ./index.css --watch=forever --bundle --minify --sourcemap --outdir=./public --define:process.env.NODE_ENV=\"'development'\"",
+    "serve": "static ./public --spa",
+    "start": "npm run watch & npm run serve",
+    "test": "NODE_ENV=test node --experimental-test-coverage ./test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "mithril": "^2.3.3",
+    "mithril-emittable": "^1.0.0",
+    "routemeup": "github:KoryNunn/routemeup#require-support"
+  },
+  "devDependencies": {
+    "automage": "^2.14.1",
+    "esbuild": "^0.25.8",
+    "jsdom": "^26.1.0",
+    "node-static": "^0.7.11"
+  }
+}

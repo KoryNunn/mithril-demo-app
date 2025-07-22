@@ -1,0 +1,24 @@
+:where(a) {
+	display: inline-flex;
+	flex-flow: row wrap;
+	padding: var(--space-small) var(--space-small);
+	max-width: 800px;
+	align-self: center;
+	border: none;
+	align-self: baseline;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+	color: color-mix(in srgb, var(--color-highlight) 80%, transparent);
+	font-weight: bold;
+	text-decoration: none;
+	gap: var(--space-medium);
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+
+	&:hover {
+		cursor: pointer;
+		color: var(--color-highlight);
+	}
+}

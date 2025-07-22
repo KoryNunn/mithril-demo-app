@@ -1,0 +1,33 @@
+:where(field) {
+	display: inline-flex;
+	flex-flow: row wrap;
+	padding: var(--space-small) var(--space-small);
+	max-width: 800px;
+	align-self: center;
+	align-self: baseline;
+	text-decoration: none;
+	gap: var(--space-medium);
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+}
+
+:where(form) {
+	gap: var(--space-medium);
+	display: grid;
+	grid-template-columns: max-content auto;
+
+	field {
+		gap: var(--space-medium);
+		display: contents;
+
+		label {
+			max-width: 400px;
+		}
+		 
+		input {
+			max-width: 400px;
+		}
+	}
+}

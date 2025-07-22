@@ -1,0 +1,34 @@
+:root {
+	--app-width: calc(min(100% - var(--space-small) * 2, 900px));
+
+	--space-small: 4px;
+	--space-medium: 8px;
+	--space-large: 24px;
+	--space-huge: 32px;
+
+	--radius-small: 2px;
+	--radius-medium: 8px;
+
+	--font-size-small: 12px;
+	--font-size-medium: 16px;
+	--font-size-large: 24px;
+	--font-size-huge: 32px;
+
+	--line-height-small: 14px;
+	--line-height-medium: 18px;
+	--line-height-large: 32px;
+	--line-height-huge: 48px;
+
+	--color-red-rgb: 189, 9, 0;
+    --color-yellow-rgb: 211, 173, 0;
+    --color-green-rgb: 100, 200, 0;
+    --color-blue-rgb: 0, 120, 220;
+    
+	--color-red: rgb(var(--color-red-rgb));
+	--color-yellow: rgb(var(--color-yellow-rgb));
+	--color-green: rgb(var(--color-green-rgb));
+	--color-blue: rgb(var(--color-blue-rgb));
+
+	--color-highlight-rgb: var(--color-blue-rgb);
+	--color-highlight: rgb(var(--color-highlight-rgb));
+}
