@@ -2,6 +2,25 @@
 
 A simple example app to show how you could build an app with mithril
 
+## Basics
+
+install deps
+```sh
+npm i
+```
+run integration tests and show coverage
+```sh
+npm test
+```
+serve the app and build on changes
+```sh
+npm start
+```
+build a prod bundle
+```sh
+npm run build
+```
+
 ## Whats this all about then
 
 This example app displays a simplified usage of mithril, using it only for rendering DOM, and shows a super explicit (and therefore un-magic) lifecycle.
