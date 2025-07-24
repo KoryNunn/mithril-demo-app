@@ -7,7 +7,8 @@
     "watch": "esbuild ./index.js ./index.css --watch=forever --bundle --minify --sourcemap --outdir=./public --define:process.env.NODE_ENV=\"'development'\"",
     "serve": "static ./public --spa",
     "start": "npm run watch & npm run serve",
-    "test": "NODE_ENV=test node --experimental-test-coverage ./test"
+    "test": "NODE_ENV=test node --experimental-test-coverage ./test",
+    "lint": "semistandard --fix --verbose"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "automage": "^2.14.1",
     "esbuild": "^0.25.8",
     "jsdom": "^26.1.0",
-    "node-static": "^0.7.11"
+    "node-static": "^0.7.11",
+    "semistandard": "^17.0.0"
   }
 }

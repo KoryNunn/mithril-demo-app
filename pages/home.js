@@ -2,11 +2,12 @@ const m = require('mithril/hyperscript');
 const emittable = require('mithril-emittable');
 const { Countdown } = require('../components/countdown');
 
-function getNextBirthday(dob) {
+function getNextBirthday (dob) {
+  const dateOfBirth = new Date(dob);
   const today = new Date();
   const year = today.getFullYear();
 
-  const next = new Date(year, dob.getMonth(), dob.getDate());
+  const next = new Date(year, dateOfBirth.getMonth(), dateOfBirth.getDate());
 
   if (next < today) {
     next.setFullYear(year + 1);
@@ -15,18 +16,20 @@ function getNextBirthday(dob) {
   return next;
 }
 
-const HomePage = emittable(function({ attrs }, emit) {
+const HomePage = emittable(function ({ attrs }, emit) {
   return {
-    view: ({ attrs: { user }}) => {
+    view: ({ attrs: { user } }) => {
       return m('section.page',
         m('h1', 'Home'),
         user && m('p', `Hello ${user.displayName}`),
-        user?.dateOfBirth ? [
-          m('p', 'Omg only ', m(Countdown, { date: getNextBirthday(user.dateOfBirth) }), ' until your birthday!')
-        ] : m('a', { href: '/about' }, 'Tell me about yourself')
-      )
+        user?.dateOfBirth
+          ? [
+              m('p', 'Omg only ', m(Countdown, { date: getNextBirthday(user.dateOfBirth) }), ' until your birthday!')
+            ]
+          : m('a', { href: '/about' }, 'Tell me about yourself')
+      );
     }
-  }
+  };
 });
 
 module.exports = { HomePage };

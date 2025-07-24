@@ -1,20 +1,15 @@
 const m = require('mithril/hyperscript');
 const emittable = require('mithril-emittable');
 const createFieldBinder = require('../components/field');
+const { saveUser } = require('../persistence');
 
-async function eventuallySetUserAge(user, updatedUserData) {
-  await new Promise(resolve => setTimeout(resolve, 500));
-  Object.assign(user, updatedUserData);
-  await new Promise(resolve => setTimeout(resolve, 500));
-}
-
-const AboutPage = emittable(function({ attrs: { user } }, emit) {
+const AboutPage = emittable(function ({ attrs: { user } }, emit) {
   let loading = false;
   const formData = { ...user };
   const bindField = createFieldBinder(emit, () => formData);
 
   return {
-    view: ({ attrs: { user }}) => {
+    view: ({ attrs: { user } }) => {
       return m('section.page',
         m('h1', 'About'),
         user && m('form',
@@ -23,7 +18,7 @@ const AboutPage = emittable(function({ attrs: { user } }, emit) {
               event.preventDefault();
               loading = true;
               emit('redraw');
-              await eventuallySetUserAge(user, formData);
+              await saveUser(user, formData);
               loading = false;
               emit('redraw');
             }
@@ -41,14 +36,14 @@ const AboutPage = emittable(function({ attrs: { user } }, emit) {
               disabled: loading,
               type: 'date',
               max: Date.now(),
-              ...bindField('dateOfBirth', value => new Date(value), value => value?.toISOString().slice(0, 10))
+              ...bindField('dateOfBirth', value => new Date(value), value => value && new Date(value).toISOString().slice(0, 10))
             })
           ),
           m('button', { disabled: loading }, 'Save')
         )
-      )
+      );
     }
-  }
+  };
 });
 
 module.exports = { AboutPage };

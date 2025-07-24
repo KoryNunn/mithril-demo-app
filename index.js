@@ -1,15 +1,11 @@
 const m = require('mithril/hyperscript');
 const mithrilRender = require('mithril/render');
 
-function mount(target, view) {
-  var nextDraw;
+function mount (target, view) {
+  let nextDraw;
 
   function redraw () {
-    if (nextDraw) {
-      return nextDraw;
-    }
-
-    nextDraw = Promise.resolve().then(() => {
+    nextDraw = nextDraw || Promise.resolve().then(() => {
       nextDraw = null;
 
       mithrilRender(
@@ -26,24 +22,24 @@ function mount(target, view) {
   return redraw;
 }
 
-function render(target) {
+function render (target) {
   const { App } = require('./components/app');
   let demount;
 
   const redraw = mount(target, () => {
-    if(demount) {
+    if (demount) {
       return null;
     }
 
-    return m(App)
+    return m(App);
   });
 
   target.addEventListener('redraw', redraw);
 
   target.addEventListener('click', event => {
     const anchor = event.target.closest('a');
-    
-    if(anchor && !anchor.hasAttribute('download') && !anchor.getAttribute('target')) {
+
+    if (anchor && !anchor.hasAttribute('download') && !anchor.getAttribute('target')) {
       event.preventDefault();
       window.history.pushState(null, null, anchor.href);
       redraw();
@@ -53,7 +49,11 @@ function render(target) {
   const window = target.ownerDocument.defaultView;
 
   window.addEventListener('navigate', event => {
-    window.history.pushState(null, null, event.detail.url);
+    if (event.detail.type === 'back') {
+      window.history.length ? window.history.back() : window.history.replaceState(null, null, event.detail.url);
+    } else {
+      window.history[event.detail.type || 'pushState'](null, null, event.detail.url);
+    }
     redraw();
   });
 

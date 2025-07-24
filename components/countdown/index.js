@@ -1,9 +1,7 @@
-const m = require('mithril/hyperscript');
 const emittable = require('mithril-emittable');
 
-function timeUntil(date) {
-  let diff = date - new Date();
-  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+function timeUntil (date) {
+  let diff = new Date(date) - new Date();
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   diff %= 1000 * 60 * 60 * 24;
@@ -19,19 +17,19 @@ function timeUntil(date) {
   return { days, hours, minutes, seconds };
 }
 
-const Countdown = emittable(function(_, emit) {
+const Countdown = emittable(function (_, emit) {
   const interval = setInterval(() => {
-  	emit('redraw');
+    emit('redraw');
   }, 100);
 
   return {
-  	onremove: () => clearInterval(interval),
+    onremove: () => clearInterval(interval),
     view: ({ attrs: { date } }) => {
-    	const { days, hours, minutes, seconds } = timeUntil(date);
+      const { days, hours, minutes, seconds } = timeUntil(date);
 
-    	return `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
+      return `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
     }
-  }
+  };
 });
 
 module.exports = { Countdown };

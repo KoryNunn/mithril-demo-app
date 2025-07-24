@@ -1,0 +1,21 @@
+:where(.task) {
+	display: flex;
+	flex-flow: row wrap;
+	flex: auto;
+	padding: var(--space-small) var(--space-small);
+	border: solid 1px var(--color-highlight);
+	font-weight: bold;
+	gap: var(--space-medium);
+	padding: var(--space-medium);
+	justify-content: flex-start;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+
+	nav {
+		display: flex;
+		flex-flow: row wrap;
+		margin-left: auto;
+		gap: var(--space-medium);
+	}
+}

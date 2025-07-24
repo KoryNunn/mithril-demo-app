@@ -1,0 +1,7 @@
+:where(ul) {
+	display: flex;
+	flex-flow: column wrap;
+	gap: var(--space-medium);
+	justify-content: stretch;
+	padding: 0;
+}

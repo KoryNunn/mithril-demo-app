@@ -1,0 +1,27 @@
+:where(button) {
+	display: inline-flex;
+	flex-flow: row wrap;
+	padding: var(--space-small) var(--space-small);
+	max-width: 800px;
+	align-self: center;
+	border: solid 1px var(--color-highlight);
+	background-color: color-mix(in srgb, var(--color-highlight) 60%, transparent);
+	padding: var(--space-medium);
+	color: color-mix(in srgb, white 90%, transparent);
+	align-self: baseline;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+	font-weight: bold;
+	text-decoration: none;
+	gap: var(--space-medium);
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+
+	&:hover {
+		cursor: pointer;
+		background-color: color-mix(in srgb, var(--color-highlight) 90%, transparent);
+		color: white;
+	}
+}

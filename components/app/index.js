@@ -1,18 +1,26 @@
 const m = require('mithril/hyperscript');
 const emittable = require('mithril-emittable');
 const { Pages } = require('../../pages');
+const { loadLoggedInUser, login } = require('../../persistence');
 
-const App = emittable(function(_, emit) {
+const App = emittable(function (_, emit) {
   let user = null;
 
-  function showLogin() {
-    const displayName = prompt('Whats ya name');
-    user = { displayName };
+  async function load () {
+    user = await loadLoggedInUser();
     emit('redraw');
   }
 
+  async function showLogin () {
+    const displayName = window.prompt('Whats ya name');
+    user = await login(displayName);
+    emit('redraw');
+  }
+
+  load();
+
   return {
-    view: ({ attrs: { } }) => m('div.app',
+    view: () => m('div.app',
       m('div.content',
         m('div',
           m('h1', { href: '/' }, 'Mithril demo app'),
@@ -20,14 +28,15 @@ const App = emittable(function(_, emit) {
           m('div.appMenu',
             [
               m('a', { href: '/' }, 'Home'),
-              m('a', { href: '/about' }, 'About')
-            ],
+              m('a', { href: '/about' }, 'About'),
+              m('a', { href: '/tasks' }, 'Tasks')
+            ]
           )
         ),
         [m(Pages, { key: user, user })]
       )
     )
-  }
+  };
 });
 
 module.exports = { App };

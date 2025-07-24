@@ -2,37 +2,45 @@
 
 A simple example app to show how you could build an app with mithril
 
+## Why
+
+The status quo is complexity.
+
+I want simple and sane.
+
 ## Basics
 
-install deps
+install deps and dev-deps (~29MB, ~2 second)
 ```sh
 npm i
 ```
-run integration tests and show coverage
+run integration tests and show coverage (11 integration tests, 100% line 100% function 99% branch coverage, ~3 seconds)
 ```sh
 npm test
 ```
 serve the app and build on changes
 ```sh
-npm start
+npm start (~200 milliseconds)
 ```
 build a prod bundle
 ```sh
-npm run build
+npm run build (~12 milliseconds, 29kb JS bundle uncompressed)
 ```
 
 ## Whats this all about then
 
 This example app displays a simplified usage of mithril, using it only for rendering DOM, and shows a super explicit (and therefore un-magic) lifecycle.
 
-It attempts to show a few concepts like basic state control, including:
+It attempts to show a few concepts including:
 
- - Setting state (App showLogin())
- - asynchronous state (AboutPage eventuallySetUserAge())
- - task-running stateful components (Countdown)
- - navigation, including SPA anchors, popstate, etc.
- - integration testing
- - code coverage
+ - Setting state
+ - Asynchronous state
+ - Task-running stateful components (Countdown)
+ - Routing
+ - Navigation, including SPA anchors, pushState, popstate, replaceState, etc.
+ - Forms/inputs
+ - Integration testing
+ - Code coverage
  - Build/Watch with sourcemaps
 
 The key takeaways should be the extreme simplicity and therefore trivially comprehensibility of how everything works.
@@ -41,7 +49,7 @@ The entire specification of state management is
  - Set the state
  - Redraw
 
-Nothing gets bound, draw's aren't automatic (and therefore happen when you expect, or more commonly, *dont* happen unexpectedly).
+Nothing gets bound, draw's aren't automatic (and therefore happen when you expect, or more importantly, *dont* happen unexpectedly).
 
 There are only two 'closures' per component:
 
