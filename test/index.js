@@ -2,7 +2,6 @@ const getApp = require('./getApp');
 const test = require('node:test');
 const assert = require('node:assert');
 const automage = require('automage');
-automage.defaultWaitTimeout = 200;
 
 test('Header has expected links', { plan: 1 }, async (t) => {
   const { dom } = await getApp(t);

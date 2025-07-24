@@ -8,9 +8,15 @@ The status quo is complexity.
 
 I want simple and sane.
 
+I don't want to waste time fighting my tools. I want to build products.
+
+This pattern has been employed in multiple non-trivial, production applications.
+
+It does not grow in complexity. It does not slow down.
+
 ## Basics
 
-install deps and dev-deps (~29MB, ~2 second)
+install deps and dev-deps (~29MB, ~2 seconds)
 ```sh
 npm i
 ```
@@ -83,7 +89,3 @@ const MyComponent = emittable((vnode, emit)) {
 
 module.exports = { MyComponent };
 ```
-
-This pattern has been employed in multiple non-trivial, production applications.
-
-It does not grow in complexity.
