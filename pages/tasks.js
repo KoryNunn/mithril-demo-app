@@ -7,7 +7,7 @@ const TasksPage = emittable(function ({ attrs: { user } }, emit) {
     view: ({ attrs: { user } }) => {
       return user && m('section.page',
         m('h1', 'Tasks'),
-        user.tasks
+        user.tasks?.length
           ? [
               m('h2', `You have ${user.tasks.length} task${user.tasks.length > 1 ? 's' : ''}`),
               m('ul',

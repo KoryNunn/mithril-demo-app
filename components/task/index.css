@@ -19,3 +19,8 @@
 		gap: var(--space-medium);
 	}
 }
+
+.task.done b {
+  text-decoration: line-through;
+  color: #888;
+}

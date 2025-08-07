@@ -10,6 +10,9 @@
     "test": "NODE_ENV=test node --experimental-test-coverage ./test",
     "lint": "semistandard --fix --verbose"
   },
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,7 +20,8 @@
   "dependencies": {
     "mithril": "^2.3.3",
     "mithril-emittable": "^1.0.0",
-    "routemeup": "github:KoryNunn/routemeup#require-support"
+    "routemeup": "github:KoryNunn/routemeup#require-support",
+    "valibot": "^1.1.0"
   },
   "devDependencies": {
     "automage": "^2.14.1",

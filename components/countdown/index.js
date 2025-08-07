@@ -23,7 +23,9 @@ const Countdown = emittable(function (_, emit) {
   }, 100);
 
   return {
-    onremove: () => clearInterval(interval),
+    onremove: () => {
+      clearInterval(interval);
+    },
     view: ({ attrs: { date } }) => {
       const { days, hours, minutes, seconds } = timeUntil(date);
 

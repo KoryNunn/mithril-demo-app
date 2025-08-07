@@ -16,11 +16,11 @@ It does not grow in complexity. It does not slow down.
 
 ## Basics
 
-install deps and dev-deps (~29MB, ~2 seconds)
+install deps and dev-deps (~29MB, ~5 seconds)
 ```sh
 npm i
 ```
-run integration tests and show coverage (11 integration tests, 100% line 100% function 99% branch coverage, ~3 seconds)
+run integration tests and show coverage (15 integration tests, 100% line 100% function 99% branch coverage, ~5 seconds)
 ```sh
 npm test
 ```
@@ -30,7 +30,7 @@ npm start (~200 milliseconds)
 ```
 build a prod bundle
 ```sh
-npm run build (~12 milliseconds, 29kb JS bundle uncompressed)
+npm run build (~50 milliseconds, 37.4kb JS bundle uncompressed)
 ```
 
 ## Whats this all about then

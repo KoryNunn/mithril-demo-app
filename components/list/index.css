@@ -5,3 +5,7 @@
 	justify-content: stretch;
 	padding: 0;
 }
+
+:where(li) {
+	transition: all 0.3s ease-out;
+}

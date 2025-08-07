@@ -1,7 +1,12 @@
+:where([inert]) {
+	filter: brightness(1.3) contrast(0.8);
+	transform: scale(0.99);
+}
+
 :where(field) {
 	display: inline-flex;
 	flex-flow: row wrap;
-	padding: var(--space-small) var(--space-small);
+	padding: var(--space-small);
 	max-width: 800px;
 	align-self: center;
 	align-self: baseline;
@@ -14,20 +19,36 @@
 }
 
 :where(form) {
+	display: flex;
+	flex-flow: column wrap;
 	gap: var(--space-medium);
-	display: grid;
-	grid-template-columns: max-content auto;
+	transition: all 0.3s ease-out;
+}
+
+:where(fieldset) {
+	padding: var(--space-medium);
+	gap: var(--space-medium);
+	display: flex;
+	flex-flow: column wrap;
 
 	field {
-		gap: var(--space-medium);
-		display: contents;
+		justify-content: flex-start;
+		max-width: none;
+		display: flex;
+		width: 100%;
 
 		label {
-			max-width: 400px;
+			flex: 200px 0 0;
 		}
 		 
 		input {
-			max-width: 400px;
+			flex: 400px 0 0;
+			margin-right: auto;
+		}
+
+		.error {
+			flex: 100%;
+			color: var(--color-red);
 		}
 	}
 }

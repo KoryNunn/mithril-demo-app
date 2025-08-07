@@ -1,15 +1,10 @@
 const m = require('mithril/hyperscript');
 const emittable = require('mithril-emittable');
 const { Pages } = require('../../pages');
-const { loadLoggedInUser, login } = require('../../persistence');
+const { watchUser, login } = require('../../persistence');
 
 const App = emittable(function (_, emit) {
   let user = null;
-
-  async function load () {
-    user = await loadLoggedInUser();
-    emit('redraw');
-  }
 
   async function showLogin () {
     const displayName = window.prompt('Whats ya name');
@@ -17,9 +12,11 @@ const App = emittable(function (_, emit) {
     emit('redraw');
   }
 
-  load();
-
   return {
+    onremove: watchUser(newUser => {
+      user = newUser;
+      emit('redraw');
+    }),
     view: () => m('div.app',
       m('div.content',
         m('div',
